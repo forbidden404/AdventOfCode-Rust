@@ -14,6 +14,7 @@ fn main() {
     match date_id.as_str() {
         #[cfg(feature = "2015")] "2015_1" => main_2015_1(),
         #[cfg(feature = "2015")] "2015_2" => main_2015_2(),
+        #[cfg(feature = "2015")] "2015_3" => main_2015_3(),
         _ => println!("Day isn't completed yet.")
     }
 }
