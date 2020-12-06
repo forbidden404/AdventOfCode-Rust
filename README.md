@@ -10,6 +10,15 @@ Run individual days like this:
 
 For reduced compilation times, you may only compile the code for a certain year by adding `--no-default-features --features 2015` for example.
 
+## Completion
+
+* 2015 (5/31) 16.12%
+* 2016 (0/31) 0.0%
+* 2017 (0/31) 0.0%
+* 2018 (0/31) 0.0%
+* 2019 (0/31) 0.0%
+* 2020 (0/31) 0.0%
+
 ## Author
 
 **Francisco Soares**
