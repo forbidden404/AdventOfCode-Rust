@@ -12,10 +12,16 @@ fn main() {
 
     let date_id = &args[1];
     match date_id.as_str() {
-        #[cfg(feature = "2015")] "2015_1" => main_2015_1(),
-        #[cfg(feature = "2015")] "2015_2" => main_2015_2(),
-        #[cfg(feature = "2015")] "2015_3" => main_2015_3(),
-        #[cfg(feature = "2015")] "2015_4" => main_2015_4(),
-        _ => println!("Day isn't completed yet.")
+        #[cfg(feature = "2015")]
+        "2015_1" => main_2015_1(),
+        #[cfg(feature = "2015")]
+        "2015_2" => main_2015_2(),
+        #[cfg(feature = "2015")]
+        "2015_3" => main_2015_3(),
+        #[cfg(feature = "2015")]
+        "2015_4" => main_2015_4(),
+        #[cfg(feature = "2015")]
+        "2015_5" => main_2015_5(),
+     _ => println!("Day isn't completed yet."),
     }
 }

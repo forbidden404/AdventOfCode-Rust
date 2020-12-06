@@ -9,3 +9,6 @@ pub use self::day03::*;
 
 mod day04;
 pub use self::day04::*;
+
+mod day05;
+pub use self::day05::*;
