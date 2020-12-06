@@ -12,7 +12,7 @@ fn process_one(input: &str) {
     loop {
         let mut data = input.to_string();
         data.push_str(num.to_string().as_str());
-        let digest = format!("{:?}", md5::compute(data));            
+        let digest = format!("{:?}", md5::compute(data));
         if &digest[..5] == "00000" {
             println!("Hash is {}.", digest);
             break;
@@ -21,7 +21,10 @@ fn process_one(input: &str) {
         num += 1;
     }
 
-    println!("The lowest number to create a md5 hash with 5 leading zeroes is {}.", num);
+    println!(
+        "The lowest number to create a md5 hash with 5 leading zeroes is {}.",
+        num
+    );
 }
 
 fn process_two(input: &str) {
@@ -29,7 +32,7 @@ fn process_two(input: &str) {
     loop {
         let mut data = input.to_string();
         data.push_str(num.to_string().as_str());
-        let digest = format!("{:?}", md5::compute(data));            
+        let digest = format!("{:?}", md5::compute(data));
         if &digest[..6] == "000000" {
             println!("Hash is {}.", digest);
             break;
@@ -38,6 +41,8 @@ fn process_two(input: &str) {
         num += 1;
     }
 
-    println!("The lowest number to create a md5 hash with 6 leading zeroes is {}.", num);
+    println!(
+        "The lowest number to create a md5 hash with 6 leading zeroes is {}.",
+        num
+    );
 }
-

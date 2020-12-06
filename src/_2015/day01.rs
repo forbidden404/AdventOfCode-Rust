@@ -15,9 +15,7 @@ fn process_one(input: &str) {
             ')' => -1,
             input => panic!("Unexpected input `{}`", input),
         })
-        .fold(0, |acc, x| {
-            acc + x
-        });
+        .fold(0, |acc, x| acc + x);
     println!("The floor is {}", floor);
 }
 
@@ -35,5 +33,8 @@ fn process_two(input: &str) {
         })
         .take_while(|x| *x >= 0)
         .collect();
-    println!("The position of the character that caused Santa to enter the basement is {}", floors_until_basement.len() + 1);
+    println!(
+        "The position of the character that caused Santa to enter the basement is {}",
+        floors_until_basement.len() + 1
+    );
 }

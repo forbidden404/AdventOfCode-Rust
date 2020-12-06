@@ -10,81 +10,83 @@ pub fn main_2015_3() {
 
 fn process_one(input: &str) {
     let unique_houses = input
-  		.chars()
-  		.map(|c| match c {
-          	'^' => (0, 1),
-          	'>' => (1, 0),
-          	'v' => (0, -1),
-          	'<' => (-1, 0),
-          	input => panic!("Unexpected input: `{}`", input),
+        .chars()
+        .map(|c| match c {
+            '^' => (0, 1),
+            '>' => (1, 0),
+            'v' => (0, -1),
+            '<' => (-1, 0),
+            input => panic!("Unexpected input: `{}`", input),
         })
-  		.scan((0, 0), |state, (x, y)| {
-        	*state = (state.0 + x, state.1 + y);
-          	Some(*state)
+        .scan((0, 0), |state, (x, y)| {
+            *state = (state.0 + x, state.1 + y);
+            Some(*state)
         })
-  		.fold(
-          	{
-              let mut map = HashMap::new();
-              map.insert((0, 0), 1);
-              map
+        .fold(
+            {
+                let mut map = HashMap::new();
+                map.insert((0, 0), 1);
+                map
             },
-          	|mut acc, (x, y)| {
-            	acc.entry((x, y)).and_modify(|e| *e += 1).or_insert(1);
-              	acc
+            |mut acc, (x, y)| {
+                acc.entry((x, y)).and_modify(|e| *e += 1).or_insert(1);
+                acc
             },
-  		)
-  		.len();
+        )
+        .len();
     println!("{} houses got at least one present.", unique_houses);
 }
 
 fn process_two(input: &str) {
     let mut is_robot = false;
     let unique_houses = input
-  		.chars()
-  		.map(|c| match c {
-          	'^' => {                    
+        .chars()
+        .map(|c| match c {
+            '^' => {
                 let state = (0, 1, is_robot);
                 is_robot = !is_robot;
                 state
             }
-          	'>' => {
+            '>' => {
                 let state = (1, 0, is_robot);
                 is_robot = !is_robot;
                 state
             }
-          	'v' => {
+            'v' => {
                 let state = (0, -1, is_robot);
                 is_robot = !is_robot;
                 state
             }
-          	'<' => {
+            '<' => {
                 let state = (-1, 0, is_robot);
                 is_robot = !is_robot;
                 state
             }
-          	input => panic!("Unexpected input: `{}`", input),
+            input => panic!("Unexpected input: `{}`", input),
         })
-  		.scan(((0, 0), (0, 0)), |state, (x, y, is_robot)| {
+        .scan(((0, 0), (0, 0)), |state, (x, y, is_robot)| {
             if is_robot {
-                *state = (state.0, (state.1.0 + x, state.1.1 + y));
+                *state = (state.0, (state.1 .0 + x, state.1 .1 + y));
             } else {
-                *state = ((state.0.0 + x, state.0.1 + y), state.1);
+                *state = ((state.0 .0 + x, state.0 .1 + y), state.1);
             }
-          	Some(*state)
+            Some(*state)
         })
-  		.fold(
-          	{
-              let mut map = HashMap::new();
-              map.insert((0, 0), 1);
-              map
+        .fold(
+            {
+                let mut map = HashMap::new();
+                map.insert((0, 0), 1);
+                map
             },
-          	|mut acc, (x, y)| {
-            	acc.entry(x).and_modify(|e| *e += 1).or_insert(1);
-            	acc.entry(y).and_modify(|e| *e += 1).or_insert(1);
-              	acc
+            |mut acc, (x, y)| {
+                acc.entry(x).and_modify(|e| *e += 1).or_insert(1);
+                acc.entry(y).and_modify(|e| *e += 1).or_insert(1);
+                acc
             },
-  		)
-  		.len();
-    println!("{} houses got at least one present from Santa and its robot.", unique_houses);
+        )
+        .len();
+    println!(
+        "{} houses got at least one present from Santa and its robot.",
+        unique_houses
+    );
 }
-
