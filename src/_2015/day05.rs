@@ -67,19 +67,19 @@ fn process_two(input: &str) {
         let mut start_index: usize = 0;
         let mut end_index: usize = 1;
         loop {
-            let pivot = &line[start_index..end_index+1];
-                
+            let pivot = &line[start_index..end_index + 1];
+
             let mut exp_start_index = end_index + 1;
             let mut exp_end_index = exp_start_index + 1;
-            if exp_start_index < line.len() {                                        
-                let fst_char = &line[start_index..start_index+1];
-                let snd_char = &line[exp_start_index..exp_start_index+1];
+            if exp_start_index < line.len() {
+                let fst_char = &line[start_index..start_index + 1];
+                let snd_char = &line[exp_start_index..exp_start_index + 1];
                 if fst_char == snd_char {
                     repeated_skipping_one = true;
                 }
 
                 while exp_end_index < line.len() {
-                    if pivot == &line[exp_start_index..exp_end_index+1] {
+                    if pivot == &line[exp_start_index..exp_end_index + 1] {
                         double_substring = true;
                         break;
                     }
@@ -92,7 +92,7 @@ fn process_two(input: &str) {
                     break;
                 }
             }
-            
+
             start_index += 1;
             end_index += 1;
             if end_index >= line.len() {
