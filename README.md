@@ -12,7 +12,7 @@ For reduced compilation times, you may only compile the code for a certain year 
 
 ## Completion
 
-* 2015 (7/31) 22.58%
+* 2015 (8/31) 25.80%
 * 2016 (0/31) 0.0%
 * 2017 (0/31) 0.0%
 * 2018 (0/31) 0.0%

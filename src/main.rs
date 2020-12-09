@@ -26,6 +26,8 @@ fn main() {
         "2015_6" => main_2015_6(),
         #[cfg(feature = "2015")]
         "2015_7" => main_2015_7(),
+        #[cfg(feature = "2015")]
+        "2015_8" => main_2015_8(),
      _ => println!("Day isn't completed yet."),
     }
 }
