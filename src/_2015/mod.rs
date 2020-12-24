@@ -21,3 +21,6 @@ pub use self::day07::*;
 
 mod day08;
 pub use self::day08::*;
+
+mod day09;
+pub use self::day09::*;
